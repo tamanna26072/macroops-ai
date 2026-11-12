@@ -75,6 +75,7 @@ def build() -> pd.DataFrame:
          .merge(wf_store, on="store_id", how="left")
     )
     master["has_ops_detail"] = master.picker_id.notna()
+    master["is_delivered"] = master.status.isin(["Delivered_On_Time", "Delivered_Late"])
 
     print("\nunique shift values:", sorted(wf["shift"].unique()))
     print("unique roles:", sorted(wf["role"].unique()))

@@ -14,18 +14,19 @@ def save(name):
     plt.savefig(FIG / f"{name}.png", dpi=120)
     plt.close()
 
-
-df = pd.read_parquet(PROCESSED / "master.parquet")
+df_all = pd.read_parquet(PROCESSED / "master.parquet")
+df = df_all[df_all.is_delivered].copy()      # SLA analysis = delivered only
 ops = df[df.has_ops_detail].copy()
 
 # %% headline numbers
-print("orders:", len(df))
-print("breach rate:", round(df.sla_breached.mean(), 4))
-print(df.status.value_counts())
+print("all orders:", len(df_all))
+print("delivered orders:", len(df))
+print("breach rate (delivered):", round(df.sla_breached.mean(), 4))
+print(df_all.status.value_counts())
 print("avg delay (breached only):", round(df.loc[df.sla_breached == 1, "delivery_delay_minutes"].mean(), 2))
 
 # %% status mix
-df.status.value_counts().plot(kind="bar")
+df_all.status.value_counts().plot(kind="bar")
 plt.title("Order status")
 save("01_status")
 
