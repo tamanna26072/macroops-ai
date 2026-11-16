@@ -21,7 +21,7 @@ All data in this repository is **synthetic** and generated for prototype, analyt
 
 ## Dashboard
 
-![Overview](docs/screenshots/01_overview.png)
+![Overview](docs/screenshots/overview.png)
 
 Four pages: Overview, Store drill-down, Peak hours & trends, Picker & Rider performance. Filters for date range and store.
 
@@ -67,7 +67,6 @@ macroops-ai/
 - [Data dictionary](docs/data_dictionary.md)
 - [KPI definitions](docs/kpi_definitions.md)
 - [Why dataset v2 was generated](docs/data_v2_decision.md)
-- [Month 02 progress](docs/month02_progress.md)
 
 ## Tech stack
 
