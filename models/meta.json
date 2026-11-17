@@ -1,0 +1,127 @@
+{
+  "stages": {
+    "1": {
+      "name": "Order placed",
+      "features": [
+        "item_count",
+        "order_value",
+        "promised_minutes",
+        "hour",
+        "dow",
+        "is_weekend",
+        "is_peak",
+        "distance_km",
+        "store_orders_60m",
+        "load_per_head",
+        "stockout_rate",
+        "avg_inv_accuracy",
+        "headcount",
+        "pending_ratio"
+      ],
+      "threshold": 0.2830088436603546,
+      "metrics": {
+        "roc_auc": 0.8075065105225219,
+        "pr_auc": 0.5553844306572447,
+        "precision": 0.42641346568839017,
+        "recall": 0.7439759036144579,
+        "flagged_pct": 40.12816072047108,
+        "tp": 988.0,
+        "fp": 1329.0,
+        "fn": 340.0,
+        "tn": 3117.0,
+        "stage": 1.0,
+        "name": "Order placed",
+        "baseline_lr_auc": 0.8223511454725786,
+        "threshold": 0.2830088436603546,
+        "trees": 600.0
+      }
+    },
+    "2": {
+      "name": "Picking done",
+      "features": [
+        "item_count",
+        "order_value",
+        "promised_minutes",
+        "hour",
+        "dow",
+        "is_weekend",
+        "is_peak",
+        "distance_km",
+        "store_orders_60m",
+        "load_per_head",
+        "stockout_rate",
+        "avg_inv_accuracy",
+        "headcount",
+        "pending_ratio",
+        "pick_duration_minutes",
+        "items_missing",
+        "pick_min_per_item",
+        "missing_ratio"
+      ],
+      "threshold": 0.28444144129753113,
+      "metrics": {
+        "roc_auc": 0.8517402945113789,
+        "pr_auc": 0.6526951361685204,
+        "precision": 0.4845693228926762,
+        "recall": 0.7921686746987951,
+        "flagged_pct": 37.59958434360928,
+        "tp": 1052.0,
+        "fp": 1119.0,
+        "fn": 276.0,
+        "tn": 3327.0,
+        "stage": 2.0,
+        "name": "Picking done",
+        "baseline_lr_auc": 0.8669382320103626,
+        "threshold": 0.28444144129753113,
+        "trees": 600.0
+      }
+    },
+    "3": {
+      "name": "Rider assigned",
+      "features": [
+        "item_count",
+        "order_value",
+        "promised_minutes",
+        "hour",
+        "dow",
+        "is_weekend",
+        "is_peak",
+        "distance_km",
+        "store_orders_60m",
+        "load_per_head",
+        "stockout_rate",
+        "avg_inv_accuracy",
+        "headcount",
+        "pending_ratio",
+        "pick_duration_minutes",
+        "items_missing",
+        "pick_min_per_item",
+        "missing_ratio",
+        "assignment_delay_minutes"
+      ],
+      "threshold": 0.42986583709716797,
+      "metrics": {
+        "roc_auc": 0.9196771905435507,
+        "pr_auc": 0.8099782483421412,
+        "precision": 0.6923615977575333,
+        "recall": 0.7439759036144579,
+        "flagged_pct": 24.71423623138206,
+        "tp": 988.0,
+        "fp": 439.0,
+        "fn": 340.0,
+        "tn": 4007.0,
+        "stage": 3.0,
+        "name": "Rider assigned",
+        "baseline_lr_auc": 0.9275529919949704,
+        "threshold": 0.42986583709716797,
+        "trees": 600.0
+      }
+    }
+  },
+  "target_recall": 0.7,
+  "split": {
+    "train": "2026-09-01..16",
+    "valid": "2026-09-17..23",
+    "test": "2026-09-24..30"
+  }
+}

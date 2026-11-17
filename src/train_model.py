@@ -26,6 +26,7 @@ from sklearn.preprocessing import StandardScaler
 from xgboost import XGBClassifier
 
 from src.config import OUTPUTS, PROCESSED, ROOT
+from src.predict import shap_values
 from src.features import (LABELS, STAGE_NAMES, STAGES, TARGET, load_model_data, time_split)
 
 MODEL_DIR = ROOT / "models"
@@ -105,7 +106,7 @@ def main():
 
         # SHAP on test sample
         samp = Xte.sample(min(2000, len(Xte)), random_state=SEED)
-        sv = shap.TreeExplainer(model).shap_values(samp)
+        sv = shap_values(model, samp)
         shap_store[stage] = (sv, samp)
 
         print(f"stage {stage} ({STAGE_NAMES[stage]}): AUC {m['roc_auc']:.3f} (LR baseline {lr_auc:.3f}) | "
